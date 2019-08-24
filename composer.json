@@ -1,0 +1,15 @@
+{
+    "name": "outstack/components",
+    "type": "library",
+    "require": {
+        "php-http/message": "^1.8",
+        "php-http/client-common": "^2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Quaile",
+            "email": "adamquaile@gmail.com"
+        }
+    ]
+}
