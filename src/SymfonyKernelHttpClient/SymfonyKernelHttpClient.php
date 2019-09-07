@@ -53,7 +53,7 @@ class SymfonyKernelHttpClient implements HttpClient
      * @throws \Http\Client\Exception If an error happens during processing the request.
      * @throws \Exception             If processing the request is impossible (eg. bad configuration).
      */
-    public function sendRequest(RequestInterface $psrRequest)
+    public function sendRequest(RequestInterface $psrRequest): ResponseInterface
     {
         $serverRequest = $this->serverRequestFactory->createServerRequest($psrRequest);
 
