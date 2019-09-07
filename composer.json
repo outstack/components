@@ -11,5 +11,10 @@
             "name": "Adam Quaile",
             "email": "adamquaile@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Outstack\\Components\\": "src/"
+        }
+    }
 }
