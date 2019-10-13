@@ -56,12 +56,22 @@ class ServerEnvironmentRequestFactory
             $get[$key] = $value;
         }
 
-        return ServerRequestFactory::fromGlobals(
+        $serverRequest = ServerRequestFactory::fromGlobals(
             array_merge($this->server, $server),
             $get,
             $post,
             $cookies,
             $files
         )->withBody($request->getBody());
+
+        if (
+            $request->hasHeader('Content-type') &&
+            $request->getHeaderLine('Content-type') === 'application/x-www-form-urlencoded'
+        ) {
+            parse_str((string) $request->getBody(), $parsedBody);
+            $serverRequest = $serverRequest->withParsedBody($parsedBody);
+        }
+
+        return $serverRequest;
     }
 }
